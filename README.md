@@ -1,2 +1,2 @@
-# Transfer Wise PHP Client
+# TransferWise PHP Client
 

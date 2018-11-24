@@ -12,11 +12,17 @@ class TransferWiseConfig
 {
 
     /**
+     * TransferWise API url
+     * Test: https://api.sandbox.transferwise.tech/v1/
+     * Live: https://api.transferwise.com/v1/
+     *
      * @var string
      */
     protected $apiUrl;
 
     /**
+     * TransferWise API key
+     *
      * @var string
      */
     protected $apiKey;
