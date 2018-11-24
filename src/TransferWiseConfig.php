@@ -29,7 +29,7 @@ class TransferWiseConfig
      */
     public function __construct($apiUrl, $apiKey)
     {
-        $this->apiUrl = $apiUrl;
+        $this->apiUrl = rtrim($apiUrl, '/') . '/';
         $this->apiKey = $apiKey;
     }
 
