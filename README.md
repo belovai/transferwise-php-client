@@ -1,5 +1,10 @@
 # TransferWise PHP Client
 
+[![Build Status](https://travis-ci.org/belovai/transferwise-php-client.svg?branch=master)](https://travis-ci.org/belovai/transferwise-php-client)
+[![Build Status](https://scrutinizer-ci.com/g/belovai/transferwise-php-client/badges/build.png?b=master)](https://scrutinizer-ci.com/g/belovai/transferwise-php-client/build-status/master)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/belovai/transferwise-php-client/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/belovai/transferwise-php-client/?branch=master)
+
+
 ## Important notes
 
 - It is **NOT** an official TransferWise package!
