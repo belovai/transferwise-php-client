@@ -1,0 +1,25 @@
+{
+    "name": "belovai/transfer-wise-client",
+    "description": "Transfer Wise Api clinet",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Arpad Belovai",
+            "email": "rp@belovai.com"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^6.3",
+        "ext-json": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^4.8"
+    },
+    "autoload": {
+        "psr-4": {
+            "TransferWise\\": "src",
+            "Tests\\": "tests"
+        }
+    }
+}
