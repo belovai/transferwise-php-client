@@ -27,3 +27,13 @@ foreach ($profiles->all() as $profile) {
     echo $profile->getDetails()->lastName . PHP_EOL;
 }
 ```
+
+#### Get profile info by id.
+```php
+try {
+    $profiles->getById(187);
+} catch (ApiException $e) {
+    echo $e->getMessage() . PHP_EOL;
+    echo $e->getResponseBody() . PHP_EOL;
+}
+```

@@ -34,4 +34,47 @@ class ProfileTest extends TestCase
         $this->assertEquals("personal", $profile->getType());
         $this->assertEquals("Doe", $profile->getDetails()->lastName);
     }
+
+    /** @test */
+    public function itConstructedWithJson()
+    {
+        $profileJson = json_encode([
+            "id" => 1,
+            "type" => "personal",
+            "details" => [
+                "firstName" => "Jon",
+                "lastName" => "Doe",
+                "dateOfBirth" => "1984-11-15",
+                "phoneNumber" => "+123456789",
+                "avatar" => null,
+                "occupation" => null,
+                "primaryAddress" => 2
+            ]
+        ]);
+        $profile = new Profile($profileJson);
+        $this->assertEquals(1, $profile->getId());
+        $this->assertEquals("personal", $profile->getType());
+        $this->assertEquals("Doe", $profile->getDetails()->lastName);
+    }
+
+    /** @test */
+    public function itThrowsExceptionOnEmptyString()
+    {
+        $this->setExpectedException(\InvalidArgumentException::class, 'Incorrect Profile creation');
+        new Profile('');
+    }
+
+    /** @test */
+    public function itThrowsExceptionOnEmptyArray()
+    {
+        $this->setExpectedException(\InvalidArgumentException::class, 'Incorrect Profile creation');
+        new Profile([]);
+    }
+
+    /** @test */
+    public function itThrowsExceptionOnIncorrectJsonString()
+    {
+        $this->setExpectedException(\InvalidArgumentException::class, 'Incorrect Profile creation');
+        new Profile('123');
+    }
 }

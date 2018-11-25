@@ -21,6 +21,8 @@ class ProfilesCollection implements \Iterator
      * ProfilesCollection constructor.
      *
      * @param string $rawData Profiles data in json
+     *
+     * @throws \Exception
      */
     public function __construct($rawData)
     {

@@ -39,6 +39,7 @@ class Profiles
      *
      * @return ProfilesCollection
      * @throws \TransferWise\ApiException
+     * @throws \Exception
      */
     public function getAll()
     {
@@ -46,6 +47,22 @@ class Profiles
         $profilesCollection = new ProfilesCollection($profiles);
 
         return $profilesCollection;
+    }
+
+    /**
+     * Get profile info by id.
+     *
+     * @param int $profileId
+     *
+     * @return Profile
+     * @throws \TransferWise\ApiException
+     * @throws \Exception
+     */
+    public function getById($profileId)
+    {
+        $rawProfile = $this->api->getById($profileId);
+
+        return new Profile($rawProfile);
     }
 
 }
