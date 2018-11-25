@@ -1,6 +1,6 @@
 <?php
 
-namespace TransferWise\Model\Api;
+namespace TransferWise\Api;
 
 
 use TransferWise\ApiException;

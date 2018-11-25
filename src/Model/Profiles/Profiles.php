@@ -2,7 +2,7 @@
 
 namespace TransferWise\Model\Profiles;
 
-use TransferWise\Model\Api\ProfilesApi;
+use TransferWise\Api\ProfilesApi;
 use TransferWise\TransferWiseConfig;
 
 /**
