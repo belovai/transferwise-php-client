@@ -12,6 +12,16 @@ class Profile
 {
 
     /**
+     * @const string Personal Profile Type
+     */
+    const TYPE_PERSONAL = "personal";
+
+    /**
+     * @const string Personal Profile Type
+     */
+    const TYPE_BUSINESS = "business";
+
+    /**
      * @var int
      */
     protected $id;
@@ -22,7 +32,7 @@ class Profile
     protected $type;
 
     /**
-     * @var object
+     * @var ProfileDetailsPersonal|ProfileDetailsBusiness
      */
     protected $details;
 
@@ -39,7 +49,12 @@ class Profile
 
         $this->id = $profileData['id'];
         $this->type = $profileData['type'];
-        $this->details = (object)$profileData['details'];
+
+        if ($this->type == self::TYPE_PERSONAL) {
+            $this->details = new ProfileDetailsPersonal($profileData['details']);
+        } else {
+            $this->details = new ProfileDetailsBusiness($profileData['details']);
+        }
     }
 
     /**
@@ -59,7 +74,7 @@ class Profile
     }
 
     /**
-     * @return object
+     * @return ProfileDetailsPersonal|ProfileDetailsBusiness
      */
     public function getDetails()
     {
