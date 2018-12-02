@@ -11,7 +11,7 @@ use TransferWise\TransferWiseConfig;
  *
  * @package TransferWise\Model\Api
  */
-class ProfilesApi
+class ProfilesApi implements ProfilesApiInterface
 {
 
     /**

@@ -11,7 +11,7 @@ use TransferWise\TransferWiseConfig;
  *
  * @package TransferWise\Api
  */
-class AddressesApi
+class AddressesApi implements AddressesApiInterface
 {
 
     /**

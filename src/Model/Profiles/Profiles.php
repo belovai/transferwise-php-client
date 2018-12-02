@@ -2,6 +2,7 @@
 
 namespace TransferWise\Model\Profiles;
 
+use TransferWise\Api\ProfilesApiInterface;
 use TransferWise\Api\ProfilesApi;
 use TransferWise\TransferWiseConfig;
 
@@ -19,19 +20,20 @@ class Profiles
     protected $config;
 
     /**
-     * @var ProfilesApi
+     * @var ProfilesApiInterface
      */
     protected $api;
 
     /**
      * Profiles constructor.
      *
-     * @param TransferWiseConfig $config
+     * @param TransferWiseConfig        $config
+     * @param ProfilesApiInterface|null $api
      */
-    public function __construct(TransferWiseConfig $config)
+    public function __construct(TransferWiseConfig $config, ProfilesApiInterface $api = null)
     {
         $this->config = $config;
-        $this->api = new ProfilesApi($this->config);
+        $this->api = $api ?: new ProfilesApi($this->config);
     }
 
     /**

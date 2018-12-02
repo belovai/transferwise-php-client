@@ -3,6 +3,7 @@
 namespace TransferWise\Model\Addresses;
 
 
+use TransferWise\Api\AddressesApiInterface;
 use TransferWise\Api\AddressesApi;
 use TransferWise\TransferWiseConfig;
 
@@ -20,19 +21,20 @@ class Addresses
     protected $config;
 
     /**
-     * @var AddressesApi
+     * @var AddressesApiInterface
      */
     private $api;
 
     /**
      * Addresses constructor.
      *
-     * @param TransferWiseConfig $config
+     * @param TransferWiseConfig         $config
+     * @param AddressesApiInterface|null $api
      */
-    public function __construct(TransferWiseConfig $config)
+    public function __construct(TransferWiseConfig $config, AddressesApiInterface $api = null)
     {
         $this->config = $config;
-        $this->api = new AddressesApi($this->config);
+        $this->api = $api ?: new AddressesApi($this->config);
     }
 
     /**
