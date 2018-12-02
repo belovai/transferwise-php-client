@@ -142,6 +142,9 @@ class Rates
     }
 
     /**
+     * Fetch exchange rate history over period of time with daily,
+     * hourly or every 10 minutes interval.
+     *
      * @param string           $source 3 digit currency code
      * @param string           $target 3 digit currency code
      * @param string|\DateTime $from
