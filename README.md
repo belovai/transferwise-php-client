@@ -97,8 +97,8 @@ var_dump($rates->getPair("EUR", "USD"));
 
 #### Fetch exchange rate of specific historical timestamp.
 ```php
-var_dump($rates->getPair("EUR", "USD", "2018-11-01 12:00:00"));
-var_dump($rates->getPair("EUR", "USD", new \DateTime("2018-11-01 12:00:00")));
+var_dump($rates->getPairAt("EUR", "USD", "2018-11-01 12:00:00"));
+var_dump($rates->getPairAt("EUR", "USD", new \DateTime("2018-11-01 12:00:00")));
 ```
 
 #### Fetch exchange rate history over period of time with daily interval.
