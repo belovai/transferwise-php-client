@@ -12,32 +12,46 @@
 
 ## Usage
 
+You will need to create a config object:
+```php
+$config = new TransferWiseConfig(
+                'https://api.sandbox.transferwise.tech/v1/', 
+                'my-api-key'
+            );
+```
+
 ### Address
+
+You should create an addresses object:
+```php
+$addresses = new Addresses($config);
+```
 
 #### List of addresses belonging to user profile.
 ```php
-$config = new TransferWiseConfig(
-                'https://api.sandbox.transferwise.tech/v1/', 
-                'my-api-key'
-            );
-$addresses = new Addresses($config);
-foreach ($addresses->getAll() as $address) {
+foreach ($addresses->getAll($profileId) as $address) {
     echo $address->id . PHP_EOL;
-    echo $address->type . PHP_EOL;
-    echo $address->details->lastName . PHP_EOL;
+    echo $address->profile . PHP_EOL;
+    echo $address->details->city . PHP_EOL;
 }
 ```
 
+#### Get address info by id.
+```php
+$address = $addresses->getById($addressId);
+echo $address->id . PHP_EOL;
+echo $address->details->city . PHP_EOL;
+```
 
 ### Profiles
 
+You should create a profiles object:
+```php
+$profiles = new Profiles($config);
+```
+
 #### List of all profiles belonging to user.
 ```php
-$config = new TransferWiseConfig(
-                'https://api.sandbox.transferwise.tech/v1/', 
-                'my-api-key'
-            );
-$profiles = new Profiles($config);
 foreach ($profiles->getAll() as $profile) {
     echo $profile->id . PHP_EOL;
     echo $profile->type . PHP_EOL;
@@ -47,10 +61,60 @@ foreach ($profiles->getAll() as $profile) {
 
 #### Get profile info by id.
 ```php
-try {
-    $profiles->getById(187);
-} catch (ApiException $e) {
-    echo $e->getMessage() . PHP_EOL;
-    echo $e->getResponseBody() . PHP_EOL;
-}
+$profile = $profiles->getById($profileId);
+echo $profile->id . PHP_EOL;
+echo $profile->type . PHP_EOL;
+echo $profile->details->lastName . PHP_EOL;
+```
+
+### Rates
+
+You should create a rates object:
+```php
+$rates = new Rates($config);
+```
+
+#### Fetch latest exchange rates of all currencies.
+```php
+// It takes very long time
+var_dump($rates->getAll());
+```
+
+#### Fetch latest exchange rates of all currencies agenst the given currency.
+```php
+var_dump($rates->getAllBySource("EUR"));
+```
+
+#### Fetch latest exchange rates of all currencies agenst the given currency.
+```php
+var_dump($rates->getAllByTarget("EUR"));
+```
+
+#### Fetch latest exchange rate of one currency pair.
+```php
+var_dump($rates->getPair("EUR", "USD"));
+```
+
+#### Fetch exchange rate of specific historical timestamp.
+```php
+var_dump($rates->getPair("EUR", "USD", "2018-11-01 12:00:00"));
+var_dump($rates->getPair("EUR", "USD", new \DateTime("2018-11-01 12:00:00")));
+```
+
+#### Fetch exchange rate history over period of time with daily interval.
+```php
+var_dump($rates->getPairInterval("EUR", "USD", "2018-10-01 12:00:00", "2018-11-01 12:00:00", Rates::GROUP_DAILY));
+var_dump($rates->getPairInterval("EUR", "USD", new \DateTime("2018-10-01 12:00:00"), new \DateTime("2018-11-01 12:00:00"), Rates::GROUP_DAILY));
+```
+
+#### Fetch exchange rate history over period of time with hourly interval.
+```php
+var_dump($rates->getPairInterval("EUR", "USD", "2018-10-01 12:00:00", "2018-11-01 12:00:00", Rates::GROUP_HOURLY));
+var_dump($rates->getPairInterval("EUR", "USD", new \DateTime("2018-10-01 12:00:00"), new \DateTime("2018-11-01 12:00:00"), Rates::GROUP_HOURLY));
+```
+
+#### Fetch exchange rate history over period of time with every 10 minutes interval.
+```php
+var_dump($rates->getPairInterval("EUR", "USD", "2018-10-01 12:00:00", "2018-11-01 12:00:00", Rates::GROUP_10_MINS));
+var_dump($rates->getPairInterval("EUR", "USD", new \DateTime("2018-10-01 12:00:00"), new \DateTime("2018-11-01 12:00:00"), Rates::GROUP_10_MINS));
 ```
