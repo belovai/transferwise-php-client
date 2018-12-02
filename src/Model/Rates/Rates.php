@@ -52,6 +52,27 @@ class Rates
     }
 
     /**
+     * Convert string to DateTime
+     *
+     * @param string|\DateTime $datetime
+     *
+     * @return \DateTime
+     * @throws \InvalidArgumentException
+     */
+    protected function convertDateTime($datetime)
+    {
+        if (!$datetime instanceof \DateTime) {
+            try {
+                $datetime = new \DateTime($datetime);
+            } catch (\Exception $e) {
+                throw new \InvalidArgumentException('Incorrect parameter: ' . $datetime);
+            }
+        }
+
+        return $datetime;
+    }
+
+    /**
      * Fetch latest exchange rates of all currencies.
      *
      * @return array
@@ -115,13 +136,8 @@ class Rates
      */
     public function getPairAt($source, $target, $time)
     {
-        if (!$time instanceof \DateTime) {
-            try {
-                $time = new \DateTime($time);
-            } catch (\Exception $e) {
-                throw new \InvalidArgumentException('Incorrect "time" parameter');
-            }
-        }
+        $time = $this->convertDateTime($time);
+
         return json_decode($this->api->getPairAt($source, $target, $time->format(\DateTime::ISO8601)), true);
     }
 
@@ -138,21 +154,8 @@ class Rates
      */
     public function getPairInterval($source, $target, $from, $to, $group)
     {
-        if (!$from instanceof \DateTime) {
-            try {
-                $from = new \DateTime($from);
-            } catch (\Exception $e) {
-                throw new \InvalidArgumentException('Incorrect "from" parameter');
-            }
-        }
-
-        if (!$to instanceof \DateTime) {
-            try {
-                $to = new \DateTime($to);
-            } catch (\Exception $e) {
-                throw new \InvalidArgumentException('Incorrect "to" parameter');
-            }
-        }
+        $from = $this->convertDateTime($from);
+        $to = $this->convertDateTime($to);
 
         if (!in_array($group, self::availableGroups())) {
             throw new \InvalidArgumentException('Incorrect "group" parameter');
