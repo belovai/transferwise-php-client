@@ -12,6 +12,23 @@
 
 ## Usage
 
+### Address
+
+#### List of addresses belonging to user profile.
+```php
+$config = new TransferWiseConfig(
+                'https://api.sandbox.transferwise.tech/v1/', 
+                'my-api-key'
+            );
+$addresses = new Addresses($config);
+foreach ($addresses->getAll() as $address) {
+    echo $address->id . PHP_EOL;
+    echo $address->type . PHP_EOL;
+    echo $address->details->lastName . PHP_EOL;
+}
+```
+
+
 ### Profiles
 
 #### List of all profiles belonging to user.
