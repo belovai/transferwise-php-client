@@ -47,12 +47,8 @@ class Address
      */
     protected function validate($addressData)
     {
-        if (is_array($addressData) && empty($addressData)) {
-            throw new \InvalidArgumentException('Incorrect Address creation');
-        }
-
-        if (is_string($addressData) && ! ($addressData = json_decode($addressData, true))) {
-            throw new \InvalidArgumentException('Incorrect Address creation');
+        if (! is_array($addressData)) {
+            $addressData = json_decode($addressData, true);
         }
 
         if (! is_array($addressData) || empty($addressData)) {

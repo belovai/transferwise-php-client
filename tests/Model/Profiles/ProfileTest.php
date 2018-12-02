@@ -72,6 +72,13 @@ class ProfileTest extends TestCase
     }
 
     /** @test */
+    public function itThrowsExceptionOnEmptyJsonArray()
+    {
+        $this->setExpectedException(\InvalidArgumentException::class, 'Incorrect Profile creation');
+        new Profile('[]');
+    }
+
+    /** @test */
     public function itThrowsExceptionOnIncorrectJsonString()
     {
         $this->setExpectedException(\InvalidArgumentException::class, 'Incorrect Profile creation');

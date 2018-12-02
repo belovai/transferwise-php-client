@@ -58,18 +58,14 @@ class Profile
     }
 
     /**
-     * @param $profileData
+     * @param string|array $profileData
      *
      * @return array
      */
     protected function validate($profileData)
     {
-        if (is_array($profileData) && empty($profileData)) {
-            throw new \InvalidArgumentException('Incorrect Profile creation');
-        }
-
-        if (is_string($profileData) && ! ($profileData = json_decode($profileData, true))) {
-            throw new \InvalidArgumentException('Incorrect Profile creation');
+        if (! is_array($profileData)) {
+            $profileData = json_decode($profileData, true);
         }
 
         if (! is_array($profileData) || empty($profileData)) {

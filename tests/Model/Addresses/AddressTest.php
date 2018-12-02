@@ -71,6 +71,13 @@ class AddressTest extends TestCase
     }
 
     /** @test */
+    public function itThrowsExceptionOnEmptyJsonArray()
+    {
+        $this->setExpectedException(\InvalidArgumentException::class, 'Incorrect Address creation');
+        new Address('[]');
+    }
+
+    /** @test */
     public function itThrowsExceptionOnIncorrectJsonString()
     {
         $this->setExpectedException(\InvalidArgumentException::class, 'Incorrect Address creation');
