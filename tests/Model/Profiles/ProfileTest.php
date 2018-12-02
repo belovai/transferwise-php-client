@@ -60,28 +60,32 @@ class ProfileTest extends TestCase
     /** @test */
     public function itThrowsExceptionOnEmptyString()
     {
-        $this->setExpectedException(\InvalidArgumentException::class, 'Incorrect Profile creation');
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage('Incorrect Profile creation');
         new Profile('');
     }
 
     /** @test */
     public function itThrowsExceptionOnEmptyArray()
     {
-        $this->setExpectedException(\InvalidArgumentException::class, 'Incorrect Profile creation');
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage('Incorrect Profile creation');
         new Profile([]);
     }
 
     /** @test */
     public function itThrowsExceptionOnEmptyJsonArray()
     {
-        $this->setExpectedException(\InvalidArgumentException::class, 'Incorrect Profile creation');
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage('Incorrect Profile creation');
         new Profile('[]');
     }
 
     /** @test */
     public function itThrowsExceptionOnIncorrectJsonString()
     {
-        $this->setExpectedException(\InvalidArgumentException::class, 'Incorrect Profile creation');
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage('Incorrect Profile creation');
         new Profile('123');
     }
 }

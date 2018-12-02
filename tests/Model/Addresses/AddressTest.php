@@ -59,28 +59,32 @@ class AddressTest extends TestCase
     /** @test */
     public function itThrowsExceptionOnEmptyString()
     {
-        $this->setExpectedException(\InvalidArgumentException::class, 'Incorrect Address creation');
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage('Incorrect Address creation');
         new Address('');
     }
 
     /** @test */
     public function itThrowsExceptionOnEmptyArray()
     {
-        $this->setExpectedException(\InvalidArgumentException::class, 'Incorrect Address creation');
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage('Incorrect Address creation');
         new Address([]);
     }
 
     /** @test */
     public function itThrowsExceptionOnEmptyJsonArray()
     {
-        $this->setExpectedException(\InvalidArgumentException::class, 'Incorrect Address creation');
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage('Incorrect Address creation');
         new Address('[]');
     }
 
     /** @test */
     public function itThrowsExceptionOnIncorrectJsonString()
     {
-        $this->setExpectedException(\InvalidArgumentException::class, 'Incorrect Address creation');
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage('Incorrect Address creation');
         new Address('123');
     }
 }
