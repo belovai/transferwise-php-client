@@ -21,10 +21,10 @@ $config = new TransferWiseConfig(
                 'my-api-key'
             );
 $profiles = new Profiles($config);
-foreach ($profiles->all() as $profile) {
-    echo $profile->getId() . PHP_EOL;
-    echo $profile->getType() . PHP_EOL;
-    echo $profile->getDetails()->lastName . PHP_EOL;
+foreach ($profiles->getAll() as $profile) {
+    echo $profile->id . PHP_EOL;
+    echo $profile->type . PHP_EOL;
+    echo $profile->details->lastName . PHP_EOL;
 }
 ```
 
