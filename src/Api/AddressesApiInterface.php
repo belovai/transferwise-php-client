@@ -11,4 +11,6 @@ interface AddressesApiInterface
 {
 
     public function getAll($profileId);
+
+    public function getById($addressId);
 }

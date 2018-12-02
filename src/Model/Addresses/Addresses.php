@@ -53,4 +53,17 @@ class Addresses
 
         return $addressesCollection;
     }
+
+    /**
+     * @param int $addressId
+     *
+     * @return Address
+     * @throws \TransferWise\ApiException
+     */
+    public function getById($addressId)
+    {
+        $rawAddress = $this->api->getById($addressId);
+
+        return new Address($rawAddress);
+    }
 }
