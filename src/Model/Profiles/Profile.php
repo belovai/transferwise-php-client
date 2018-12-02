@@ -22,19 +22,19 @@ class Profile
     const TYPE_BUSINESS = "business";
 
     /**
-     * @var int
+     * @var int Profile id
      */
-    protected $id;
+    public $id;
 
     /**
-     * @var string
+     * @var string Profile type (personal or business)
      */
-    protected $type;
+    public $type;
 
     /**
      * @var ProfileDetailsPersonal|ProfileDetailsBusiness
      */
-    protected $details;
+    public $details;
 
     /**
      * Profile constructor.
@@ -55,30 +55,6 @@ class Profile
         } else {
             $this->details = new ProfileDetailsBusiness($profileData['details']);
         }
-    }
-
-    /**
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * @return string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
-
-    /**
-     * @return ProfileDetailsPersonal|ProfileDetailsBusiness
-     */
-    public function getDetails()
-    {
-        return $this->details;
     }
 
     /**

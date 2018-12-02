@@ -30,9 +30,9 @@ class ProfileTest extends TestCase
             ]
         ];
         $profile = new Profile($profileArray);
-        $this->assertEquals(1, $profile->getId());
-        $this->assertEquals("personal", $profile->getType());
-        $this->assertEquals("Doe", $profile->getDetails()->lastName);
+        $this->assertEquals(1, $profile->id);
+        $this->assertEquals("personal", $profile->type);
+        $this->assertEquals("Doe", $profile->details->lastName);
     }
 
     /** @test */
@@ -52,9 +52,9 @@ class ProfileTest extends TestCase
             ]
         ]);
         $profile = new Profile($profileJson);
-        $this->assertEquals(1, $profile->getId());
-        $this->assertEquals("personal", $profile->getType());
-        $this->assertEquals("Doe", $profile->getDetails()->lastName);
+        $this->assertEquals(1, $profile->id);
+        $this->assertEquals("personal", $profile->type);
+        $this->assertEquals("Doe", $profile->details->lastName);
     }
 
     /** @test */
