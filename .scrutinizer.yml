@@ -64,7 +64,7 @@ build:
         - { command: 'composer install --no-interaction', idle_timeout: 600 }
 
   cache:
-    directories: [ vendor/, bin/, ~/.composer/cache ]
+    directories: [ vendor/, ~/.composer/cache ]
 
 build_failure_conditions:
 - 'elements.rating(<= B).new.exists'
