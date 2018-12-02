@@ -64,11 +64,11 @@ class Profile
      */
     protected function validate($profileData)
     {
-        if (! is_array($profileData)) {
+        if (!is_array($profileData)) {
             $profileData = json_decode($profileData, true);
         }
 
-        if (! is_array($profileData) || empty($profileData)) {
+        if (!is_array($profileData) || empty($profileData)) {
             throw new \InvalidArgumentException('Incorrect Profile creation');
         }
         return $profileData;
