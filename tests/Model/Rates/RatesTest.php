@@ -50,7 +50,7 @@ class RatesTest extends TestCase
     public function itThrowsExceptionOnInvalidTimeparameter()
     {
         $this->expectException(\InvalidArgumentException::class);
-        $this->expectExceptionMessage('Incorrect parameter: 0');
+        $this->expectExceptionMessage('Incorrect parameter');
         $this->instance->getPairAt("EUR", "USD", "0");
     }
 
@@ -58,7 +58,7 @@ class RatesTest extends TestCase
     public function itThrowsExceptionOnInvalidFromParameter()
     {
         $this->expectException(\InvalidArgumentException::class);
-        $this->expectExceptionMessage('Incorrect parameter: 0');
+        $this->expectExceptionMessage('Incorrect parameter');
         $this->instance->getPairInterval("EUR", "USD", "0", "0", "");
     }
 
@@ -66,7 +66,7 @@ class RatesTest extends TestCase
     public function itThrowsExceptionOnInvalidToParameter()
     {
         $this->expectException(\InvalidArgumentException::class);
-        $this->expectExceptionMessage('Incorrect parameter: 0');
+        $this->expectExceptionMessage('Incorrect parameter');
         $this->instance->getPairInterval("EUR", "USD", "2018-11-01", "0", "");
     }
 
@@ -74,7 +74,7 @@ class RatesTest extends TestCase
     public function itThrowsExceptionOnInvalidGroupParameter()
     {
         $this->expectException(\InvalidArgumentException::class);
-        $this->expectExceptionMessage('Incorrect "group" parameter');
+        $this->expectExceptionMessage('Incorrect parameter');
         $this->instance->getPairInterval("EUR", "USD", "2018-11-01", "2018-11-02", "");
     }
 }

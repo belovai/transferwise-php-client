@@ -65,7 +65,7 @@ class Rates
             try {
                 $datetime = new \DateTime($datetime);
             } catch (\Exception $e) {
-                throw new \InvalidArgumentException('Incorrect parameter: ' . $datetime);
+                throw new \InvalidArgumentException('Incorrect parameter');
             }
         }
 
@@ -158,7 +158,7 @@ class Rates
         $to = $this->convertDateTime($to);
 
         if (!in_array($group, self::availableGroups())) {
-            throw new \InvalidArgumentException('Incorrect "group" parameter');
+            throw new \InvalidArgumentException('Incorrect parameter');
         }
 
         return json_decode(
