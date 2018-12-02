@@ -69,4 +69,14 @@ trait CollectionTrait
     {
         $this->position = 0;
     }
+
+    /**
+     * Count for Countable
+     *
+     * @return int
+     */
+    public function count()
+    {
+        return count($this->collection);
+    }
 }

@@ -12,7 +12,7 @@ use TransferWise\CollectionTrait;
  *
  * @package TransferWise\Model\Profiles
  */
-class ProfilesCollection implements \Iterator
+class ProfilesCollection implements \Iterator, \Countable
 {
 
     use CollectionTrait;

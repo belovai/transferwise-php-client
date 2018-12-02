@@ -12,7 +12,7 @@ use TransferWise\CollectionTrait;
  *
  * @package TransferWise\Model\Addresses
  */
-class AddressesCollection
+class AddressesCollection implements \Iterator, \Countable
 {
 
     use CollectionTrait;
