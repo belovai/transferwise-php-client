@@ -23,7 +23,7 @@ class AddressesApi extends AbstractApi implements AddressesApiInterface
      */
     public function getAll($profileId)
     {
-        return $this->callApi("addresses", ['profile' => $profileId]);
+        return $this->getApi("addresses", ['profile' => $profileId]);
     }
 
     /**
@@ -34,7 +34,7 @@ class AddressesApi extends AbstractApi implements AddressesApiInterface
      */
     public function getById($addressId)
     {
-        return $this->callApi("addresses/" . $addressId);
+        return $this->getApi("addresses/" . $addressId);
     }
 
 

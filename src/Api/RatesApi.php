@@ -21,7 +21,7 @@ class RatesApi extends AbstractApi implements RatesApiInterface
      */
     public function getAll()
     {
-        return $this->callApi("rates");
+        return $this->getApi("rates");
     }
 
     /**
@@ -34,7 +34,7 @@ class RatesApi extends AbstractApi implements RatesApiInterface
      */
     public function getAllBySource($source)
     {
-        return $this->callApi("rates", ['source' => $source]);
+        return $this->getApi("rates", ['source' => $source]);
     }
 
     /**
@@ -47,7 +47,7 @@ class RatesApi extends AbstractApi implements RatesApiInterface
      */
     public function getAllByTarget($target)
     {
-        return $this->callApi("rates", ['target' => $target]);
+        return $this->getApi("rates", ['target' => $target]);
     }
 
     /**
@@ -61,7 +61,7 @@ class RatesApi extends AbstractApi implements RatesApiInterface
      */
     public function getPair($source, $target)
     {
-        return $this->callApi("rates", ['source' => $source, 'target' => $target]);
+        return $this->getApi("rates", ['source' => $source, 'target' => $target]);
     }
 
     /**
@@ -76,7 +76,7 @@ class RatesApi extends AbstractApi implements RatesApiInterface
      */
     public function getPairAt($source, $target, $time)
     {
-        return $this->callApi("rates", [
+        return $this->getApi("rates", [
             'source' => $source,
             'target' => $target,
             'time' => $time
@@ -98,7 +98,7 @@ class RatesApi extends AbstractApi implements RatesApiInterface
      */
     public function getPairInterval($source, $target, $from, $to, $group)
     {
-        return $this->callApi("rates", [
+        return $this->getApi("rates", [
             'source' => $source,
             'target' => $target,
             'from' => $from,

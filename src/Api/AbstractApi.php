@@ -36,7 +36,7 @@ abstract class AbstractApi
      * @return string
      * @throws ApiException
      */
-    protected function callApi($endpoint, $query = [])
+    protected function getApi($endpoint, $query = [])
     {
         $client = new \GuzzleHttp\Client();
         try {

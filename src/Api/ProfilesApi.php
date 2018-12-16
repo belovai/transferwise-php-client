@@ -21,7 +21,7 @@ class ProfilesApi extends AbstractApi implements ProfilesApiInterface
      */
     public function getAll()
     {
-        return $this->callApi("profiles");
+        return $this->getApi("profiles");
     }
 
     /**
@@ -34,6 +34,6 @@ class ProfilesApi extends AbstractApi implements ProfilesApiInterface
      */
     public function getById($profileId)
     {
-        return $this->callApi("profiles/" . $profileId);
+        return $this->getApi("profiles/" . $profileId);
     }
 }
